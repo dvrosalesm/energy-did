@@ -18,6 +18,14 @@ export class AppController {
     this.appService.requestAttestation(credential, claimer);
   }
 
+  @Post('/attestClaim')
+  async attestClaim(
+    @Body('id') id: string,
+    @Body('signedChallenge') signedChallenge: string,
+  ) {
+    return await this.appService.attestCredential(id, signedChallenge);
+  }
+
   @Get('/getAttestations/:claimer')
   getAttestations(@Param('claimer') claimer: Kilt.DidUri) {
     return this.appService.getAttestations(claimer);
@@ -43,14 +51,6 @@ export class AppController {
     @Body('verifier') verifier: string,
   ) {
     await this.appService.requestVerification(id, challenge, verifier);
-  }
-
-  @Post('/attestClaim')
-  async attestClaim(
-    @Body('id') id: string,
-    @Body('signedChallenge') signedChallenge: string,
-  ) {
-    return await this.appService.attestCredential(id, signedChallenge);
   }
 
   @Post('/submitVerification')

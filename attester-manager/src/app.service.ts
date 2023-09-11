@@ -9,6 +9,7 @@ import db from './db/loki';
 export class AppService {
   async registerCTypes() {
     const accountInfo = await this.getAttesterAccount();
+
     const api = await Kilt.connect(
       process.env.WSS_ADDRESS || 'wss://peregrine.kilt.io',
     );
