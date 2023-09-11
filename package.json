@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "type": "module",
+  "workspaces": {
+    "packages": [
+      "asset-manager",
+      "attester-cli",
+      "attester-manager",
+      "verifier-cli",
+      "kilt-common"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+interface AttestationRequestResponse {
+  challenge: string;
+}
