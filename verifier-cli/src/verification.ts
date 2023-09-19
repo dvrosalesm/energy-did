@@ -36,7 +36,7 @@ export async function getAllClaims() {
     return;
   }
 
-  console.log("Listing all verification requests...");
+  console.log("Listing all credentials...");
   for (const [i, claim] of pendingClaims.entries()) {
     console.log(
       `${i + 1}. Claim: ${claim.id} status: ${

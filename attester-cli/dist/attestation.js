@@ -32,7 +32,7 @@ async function getAllClaims() {
     }
     console.log("Listing all pending claims...");
     for (const [i, claim] of pendingClaims.entries()) {
-        console.log(`${i + 1}. Claim: ${claim.id} status: ${claim.status} Details: ${Object.values(claim.credential.claim.contents).join("-")} `);
+        console.log(`${i + 1}. Claim: ${claim.id} status: ${claim.status} Details: ${Object.values(claim.credential?.claim?.contents || {}).join("-")} `);
     }
 }
 exports.getAllClaims = getAllClaims;
