@@ -34,6 +34,8 @@ This monorepo includes:
 - kilt-common: Shared KILT logic to be used in the multiple projects in this monorepo.
 - verifier-cli: CLI to be used as a verifier, enables a verifier to list attested credentials and request verifications from the claimer.
 
+
+
 ## Installation & running the project
 
 **(Node >= 16 required)**
@@ -51,11 +53,13 @@ yarn --cwd ./asset-manager dev
 yarn --cwd ./attester-manager start:dev
 ```
 
-## Full DIDs
-
 ## Usage
 
 ### Create a `Full DID`
+
+The purpose of the system is to use the advantages of the decentralized identifiers (DID) to create a virtual abstraction of an identity (person, accounts, assets), in order to do this we are using Full DIDs for all interactions sinceit provides all the capabilities of generating claims, credentials, request attestations and verify credentials while also being tied to a blockchain (the KILT blockchain in this case). 
+
+The current implementation supports a very basic usage of this, utilizing accounts by themselves without any extra attributes tied to them.
 
 - Go to http://127.0.0.1:5173
 - Enter a mnemonic (i.e. `sail three flush occur fiction shoulder slender happy live holiday rule very`) and click on search
@@ -63,6 +67,8 @@ yarn --cwd ./attester-manager start:dev
 - If the faucet was needed, wait 1 minute and then click on search again, it should show 100000000000000000 PILT, if not try again after 1 minute.
 - Now a `Create full DID` button should show in the screen, click it to create a Full DID, if it doen't show it means the the account already has a full DID associated.
 - After creating the Full DID, the `Has full DID ` field should be set to `Yes`, if not try refreshing by pressing the "Search" button again.
+
+![Screen recording Full DID](https://github.com/dvrosalesm/energy-did/assets/11451856/4e407d52-89d9-4a90-a871-9e1abe70a69b)
 
 ### Request attestation
 
