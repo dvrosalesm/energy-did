@@ -4,7 +4,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const commander_1 = require("commander");
 const dotenv = require("dotenv");
 const attestation_1 = require("./attestation");
-dotenv.config();
+dotenv.config({
+    path: "../.env",
+});
 const program = new commander_1.Command();
 program
     .command("attest")

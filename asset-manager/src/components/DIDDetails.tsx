@@ -15,7 +15,6 @@ function DIDDetails({ mnemonic }: DIDDetailsProps) {
     if (mnemonic.seed !== "") {
       setIsLoading(true);
       KILTService.getAccountInfo(mnemonic.seed).then((x) => {
-        // console.log(x);
         setAccountInfo(x);
         setIsLoading(false);
       });

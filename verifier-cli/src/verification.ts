@@ -20,7 +20,6 @@ export async function requestVerification(claimdId: string) {
 
   if (res.status === 201) console.log("Request verification correctly");
   else {
-    console.log(res);
     console.log("Failed while requesting verification, try again later...");
   }
 }

@@ -23,6 +23,7 @@ async function attestClaim(claimdId) {
 }
 exports.attestClaim = attestClaim;
 async function getAllClaims() {
+    var _a, _b;
     const claimsRaw = await fetch("http://127.0.0.1:3434/getAllAttestations");
     const claims = await claimsRaw.json();
     let pendingClaims = claims.filter((x) => x.status === "PENDING");
@@ -32,7 +33,7 @@ async function getAllClaims() {
     }
     console.log("Listing all pending claims...");
     for (const [i, claim] of pendingClaims.entries()) {
-        console.log(`${i + 1}. Claim: ${claim.id} status: ${claim.status} Details: ${Object.values(claim.credential?.claim?.contents || {}).join("-")} `);
+        console.log(`${i + 1}. Claim: ${claim.id} status: ${claim.status} Details: ${Object.values(((_b = (_a = claim.credential) === null || _a === void 0 ? void 0 : _a.claim) === null || _b === void 0 ? void 0 : _b.contents) || {}).join("-")} `);
     }
 }
 exports.getAllClaims = getAllClaims;

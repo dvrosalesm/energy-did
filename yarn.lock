@@ -961,10 +961,10 @@
   resolved "https://registry.yarnpkg.com/@lukeed/csprng/-/csprng-1.1.0.tgz#1e3e4bd05c1cc7a0b2ddbd8a03f39f6e4b5e6cfe"
   integrity sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==
 
-"@material-tailwind/react@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@material-tailwind/react/-/react-2.1.1.tgz#baca2049ffe86a1539efb95fe0facbeccbfe4916"
-  integrity sha512-QRE4A2FcsrAu1fVyrOUB/Lf7EPmGMHoX72ohd9XM01sxc0ryIEaCJGnGBnnlcMsqe4bqIVUTSJOaM8iu4IBVxg==
+"@material-tailwind/react@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@material-tailwind/react/-/react-2.1.0.tgz#fb6c771b394ed58697d72ad7ad8ccb30ed5c3eb0"
+  integrity sha512-Z1YEy5oFbMJDuJ85ArPPVPgTexM/RvhkMNc/KlmJEeCAP4pQ1ImaBuckK1BKuRXUtZex+TlpFW+r49nkaes/Rg==
   dependencies:
     "@floating-ui/react" "0.19.0"
     classnames "2.3.2"
@@ -1738,10 +1738,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.2.15":
+"@types/react@*":
   version "18.2.21"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.21.tgz#774c37fd01b522d0b91aed04811b58e4e0514ed9"
   integrity sha512-neFKG/sBAwGxHgXiIxnbm3/AAVQ/cMRS93hvBpg8xYRbeQSPVABp9U2bRnPf0iI4+Ucdv3plSxKK+3CW2ENJxA==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@18.2.19":
+  version "18.2.19"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.19.tgz#f77cb2c8307368e624d464a25b9675fa35f95a8b"
+  integrity sha512-e2S8wmY1ePfM517PqCG80CcE48Xs5k0pwJzuDZsfE8IZRRBfOMCF+XqnFxu6mWtyivum1MQm4aco+WIt6Coimw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"

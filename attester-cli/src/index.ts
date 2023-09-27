@@ -4,7 +4,9 @@ import { Command } from "commander";
 import * as dotenv from "dotenv";
 import { attestClaim, getAllClaims } from "./attestation";
 
-dotenv.config();
+dotenv.config({
+  path: "../.env",
+});
 
 const program = new Command();
 

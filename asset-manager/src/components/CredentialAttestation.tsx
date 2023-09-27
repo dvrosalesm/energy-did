@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import SelectOption from "@material-tailwind/react/components/Select/SelectOption";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { KILTService } from "../services/KILTService";
 import { ICredential } from "@kiltprotocol/sdk-js";
 
@@ -24,10 +24,21 @@ function CredentialAttestation({ mnemonic }: CredentialAttestationProps) {
   const [attestations, setAttestations] = useState<
     {
       status: string;
-      credential: object;
+      credential: {
+        claim?: {
+          contents?: {
+            nameplateCapacity: string;
+            country: string;
+          };
+        };
+      };
       attester: string;
       id: string;
-      challenges: object[];
+      challenges: {
+        verified: boolean;
+        verifier: string;
+        challenge: string;
+      }[];
     }[]
   >([]);
 
@@ -94,7 +105,7 @@ function CredentialAttestation({ mnemonic }: CredentialAttestationProps) {
     });
   };
 
-  const refreshAttestations = () => {
+  const refreshAttestations = useCallback(() => {
     KILTService.getAccountInfo(mnemonic.seed).then((accountInfo) => {
       fetch(
         "http://127.0.0.1:3434/getAttestations/" + accountInfo.account?.didUri,
@@ -107,7 +118,7 @@ function CredentialAttestation({ mnemonic }: CredentialAttestationProps) {
           setAttestations(attestations);
         });
     });
-  };
+  }, [mnemonic]);
 
   const onVerify = (id: string, credential: object, challenge: string) => {
     KILTService.generatePresentation(
@@ -131,7 +142,7 @@ function CredentialAttestation({ mnemonic }: CredentialAttestationProps) {
 
   useEffect(() => {
     refreshAttestations();
-  }, [mnemonic]);
+  }, [mnemonic, refreshAttestations]);
 
   if (mnemonic.seed === "") return null;
 
@@ -146,8 +157,8 @@ function CredentialAttestation({ mnemonic }: CredentialAttestationProps) {
             <div>
               <Select
                 label="Attestation type"
-                onChange={(selection: string) => {
-                  setType(selection);
+                onChange={(selection: string | undefined) => {
+                  if (selection) setType(selection);
                 }}
               >
                 <SelectOption value="PV">PV</SelectOption>
@@ -173,8 +184,8 @@ function CredentialAttestation({ mnemonic }: CredentialAttestationProps) {
                   <div className="mt-2">
                     <Select
                       label="Type"
-                      onChange={(selection: string) => {
-                        setPVType(selection);
+                      onChange={(selection: string | undefined) => {
+                        if (selection) setPVType(selection);
                       }}
                     >
                       <SelectOption value="Rooftop">Rooftop</SelectOption>
@@ -225,8 +236,11 @@ function CredentialAttestation({ mnemonic }: CredentialAttestationProps) {
                   {attestation.id.substring(60)}
                 </div>
                 <div className="flex w-2/4 break-all text-xs">
-                  ({attestation.credential.claim.contents.country} +{" KW"}
-                  {attestation.credential.claim.contents.nameplateCapacity} KW)
+                  ({attestation.credential.claim?.contents?.country} +{" KW"}
+                  {
+                    attestation.credential.claim?.contents?.nameplateCapacity
+                  }{" "}
+                  KW)
                 </div>
                 <div className="flex w-1/4">
                   <p className="w-full text-xs">{attestation.status}</p>

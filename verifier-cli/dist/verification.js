@@ -19,7 +19,6 @@ async function requestVerification(claimdId) {
     if (res.status === 201)
         console.log("Request verification correctly");
     else {
-        console.log(res);
         console.log("Failed while requesting verification, try again later...");
     }
 }
@@ -32,7 +31,7 @@ async function getAllClaims() {
         console.log("No pending claims");
         return;
     }
-    console.log("Listing all verification requests...");
+    console.log("Listing all credentials...");
     for (const [i, claim] of pendingClaims.entries()) {
         console.log(`${i + 1}. Claim: ${claim.id} status: ${claim.status} Details: ${Object.values(claim.credential.claim.contents).join("-")} `);
     }
