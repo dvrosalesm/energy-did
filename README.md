@@ -4,8 +4,6 @@
 
 Monorepo to showcase the usage of the KILT protocol to create decentralized identities (DID), claims, verified credentials, attest credentials and verify credentials.
 
-![image](https://github.com/dvrosalesm/energy-did/assets/11451856/accf73cc-fa5d-4a53-9ae3-ef848b50e4bf)
-
 ## Features
 
 Each package includes a set of features that pertain each target user:
