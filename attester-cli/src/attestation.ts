@@ -38,7 +38,9 @@ export async function getAllClaims() {
     console.log(
       `${i + 1}. Claim: ${claim.id} status: ${
         claim.status
-      } Details: ${Object.values(claim.credential?.claim?.contents || {}).join("-")} `
+      } Details: ${Object.values(claim.credential?.claim?.contents || {}).join(
+        "-"
+      )} `
     );
   }
 }

@@ -2,7 +2,7 @@ import { Button, Input } from "@material-tailwind/react";
 import { useRef } from "react";
 
 interface MnemonicProps {
-  onUpdate: (mnemonic: { seed: "" }) => void;
+  onUpdate: (mnemonic: { seed: string }) => void;
 }
 
 function Mnemonic({ onUpdate }: MnemonicProps) {
